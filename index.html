@@ -7,75 +7,111 @@
     <style>
         /* Globální stylování stránky */
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Roboto', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f4f4f9;
+            background-color: #f9f9fc;
             color: #333;
+            line-height: 1.6;
         }
         
         /* Styl pro hlavičku stránky */
         header {
-            background: #007bff;
+            background: linear-gradient(90deg, #007bff, #00c6ff);
             color: white;
-            padding: 1rem 0;
+            padding: 1.5rem 0;
             text-align: center;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        
+        header h1 {
+            font-size: 2.5rem;
+            margin: 0;
         }
         
         /* Kontejner pro obsah stránky */
         .container {
             width: 90%;
-            max-width: 800px;
-            margin: 20px auto;
+            max-width: 900px;
+            margin: 30px auto;
             background: white;
-            padding: 20px;
-            border-radius: 5px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
         }
         
         /* Nadpisy */
         h1, h2 {
-            margin-bottom: 10px;
+            margin-bottom: 15px;
+        }
+        
+        h2 {
+            color: #007bff;
         }
         
         /* Styl pro jednotlivé inzeráty */
         .ad {
-            border-bottom: 1px solid #ccc;
-            padding: 10px 0;
+            border-bottom: 1px solid #ddd;
+            padding: 15px 0;
         }
         
-        /* Poslední inzerát bez spodního okraje */
         .ad:last-child {
             border-bottom: none;
         }
         
-        /* Styl formuláře */
-        form {
-            margin-top: 20px;
-        }
-        form input, form textarea {
-            width: 100%;
-            margin-bottom: 10px;
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 3px;
+        .ad h3 {
+            color: #0056b3;
+            margin: 0 0 10px;
         }
         
-        /* Tlačítko formuláře */
+        .ad p {
+            margin: 0;
+        }
+        
+        /* Styl formuláře */
+        form {
+            margin-top: 25px;
+        }
+        
+        form input, form textarea {
+            width: 100%;
+            margin-bottom: 15px;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+        
+        form input:focus, form textarea:focus {
+            border-color: #007bff;
+            outline: none;
+            box-shadow: 0 0 5px rgba(0, 123, 255, 0.3);
+        }
+        
         form button {
-            padding: 10px 15px;
+            padding: 12px 20px;
             background: #007bff;
             color: white;
             border: none;
-            border-radius: 3px;
+            border-radius: 5px;
+            font-size: 1rem;
             cursor: pointer;
+            transition: background 0.3s;
         }
         
-        /* Hover efekt na tlačítku */
         form button:hover {
             background: #0056b3;
         }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 0.9rem;
+            color: #777;
+        }
     </style>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <!-- Hlavička stránky -->
@@ -110,6 +146,11 @@
             <button type="button" onclick="addAd()">Přidat inzerát</button>
         </form>
     </div>
+
+    <!-- Patička stránky -->
+    <footer>
+        &copy; 2025 Moje Inzertní Stránka. Všechna práva vyhrazena.
+    </footer>
 
     <script>
         /* Funkce pro přidání nového inzerátu */
