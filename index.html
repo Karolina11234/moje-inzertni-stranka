@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inzertní stránka</title>
+    <style>
+        /* Globální stylování stránky */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+        
+        /* Styl pro hlavičku stránky */
+        header {
+            background: #007bff;
+            color: white;
+            padding: 1rem 0;
+            text-align: center;
+        }
+        
+        /* Kontejner pro obsah stránky */
+        .container {
+            width: 90%;
+            max-width: 800px;
+            margin: 20px auto;
+            background: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Nadpisy */
+        h1, h2 {
+            margin-bottom: 10px;
+        }
+        
+        /* Styl pro jednotlivé inzeráty */
+        .ad {
+            border-bottom: 1px solid #ccc;
+            padding: 10px 0;
+        }
+        
+        /* Poslední inzerát bez spodního okraje */
+        .ad:last-child {
+            border-bottom: none;
+        }
+        
+        /* Styl formuláře */
+        form {
+            margin-top: 20px;
+        }
+        form input, form textarea {
+            width: 100%;
+            margin-bottom: 10px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+        
+        /* Tlačítko formuláře */
+        form button {
+            padding: 10px 15px;
+            background: #007bff;
+            color: white;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+        
+        /* Hover efekt na tlačítku */
+        form button:hover {
+            background: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <!-- Hlavička stránky -->
+    <header>
+        <h1>Moje Inzertní Stránka</h1>
+    </header>
+
+    <!-- Hlavní kontejner obsahu -->
+    <div class="container">
+        <!-- Sekce aktuálních inzerátů -->
+        <h2>Aktuální inzeráty</h2>
+        <div id="ads">
+            <!-- Ukázkové inzeráty -->
+            <div class="ad">
+                <h3>Prodám kolo</h3>
+                <p>Horské kolo, málo jeté, cena: 5000 Kč.</p>
+            </div>
+            <div class="ad">
+                <h3>Pronajmu byt 2+kk</h3>
+                <p>Hezký byt v centru města, cena: 12 000 Kč/měsíc.</p>
+            </div>
+        </div>
+
+        <!-- Formulář pro přidání nového inzerátu -->
+        <h2>Přidejte nový inzerát</h2>
+        <form id="adForm">
+            <!-- Vstup pro název inzerátu -->
+            <input type="text" id="title" placeholder="Název inzerátu" required>
+            <!-- Textarea pro popis inzerátu -->
+            <textarea id="description" placeholder="Popis inzerátu" rows="4" required></textarea>
+            <!-- Tlačítko pro přidání inzerátu -->
+            <button type="button" onclick="addAd()">Přidat inzerát</button>
+        </form>
+    </div>
+
+    <script>
+        /* Funkce pro přidání nového inzerátu */
+        function addAd() {
+            // Získání hodnot z formuláře
+            const title = document.getElementById('title').value;
+            const description = document.getElementById('description').value;
+
+            // Ověření, zda jsou všechna pole vyplněna
+            if (title && description) {
+                // Najdeme kontejner s inzeráty
+                const adContainer = document.getElementById('ads');
+                
+                // Vytvoříme nový inzerát
+                const newAd = document.createElement('div');
+                newAd.classList.add('ad');
+                newAd.innerHTML = `<h3>${title}</h3><p>${description}</p>`;
+                
+                // Přidáme inzerát do seznamu
+                adContainer.appendChild(newAd);
+
+                // Reset formuláře po přidání inzerátu
+                document.getElementById('adForm').reset();
+            } else {
+                // Upozornění, pokud něco chybí
+                alert('Vyplňte všechny údaje!');
+            }
+        }
+    </script>
+</body>
+</html>
